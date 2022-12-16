@@ -104,7 +104,7 @@
 					<div class="w-70" id="demographics">
 					
 						<b>Prolific ID:</b><br>
-						<p><textarea placeholder="prolific_id" name="prolific_id" id="prolific_id" style="resize:none;border:solid 2px black; color: black; font-size: 16"></textarea></p>
+						<p><textarea name="prolific_id" id="prolific_id" style="height:2%;"></textarea></p>
 
 						
 						<b>Gender:</b><br>
@@ -463,7 +463,9 @@
 				<fieldset>
 					<h2 class="confirm">Confirm and submit</h2>
 					<h3 class="fs-subtitle"><b>Thank you! Now you can go back and double-check what you wrote, or you can just submit.</b></h3>
-
+					<h2><b>IMPORTANT:</b> before submitting, save the following completion code. Then submit the form, go back to Prolific and put the completion code before submitting there.</h1>
+					<br>
+					<h3>COMPLETION CODE: <a id="completion_code_temp">AAAAAAAAA</a></h3>
 					<input type="button" name="previous" class="previous action-button-previous" onclick="saveTime('submit')" value="Previous"/>
 					<button type="submit" onclick="saveTime('submit'); storeVariables()">Submit</button>
 				</fieldset>
@@ -475,6 +477,7 @@
 					<textarea name="n2" id="n2"></textarea></p>
 					<textarea name="operator" id="operator"></textarea></p>
 					<textarea name="result" id="result"></textarea></p>
+					<textarea name="completion_code" id="completion_code"></textarea></p>
 				</div>
 			</form>
 		</div>
@@ -736,7 +739,7 @@ select { text-align-last: right; }
 	border: 2px solid black;
 }
 
-#age, #country, #ethnic, #education, #gender, #occupation, #religion{
+#age, #country, #ethnic, #education, #gender, #occupation, #religion, #prolific_id{
 	width: 200px;
 	text-align = left;
 	direction = ltr;
@@ -831,7 +834,7 @@ function checkAttention() {
 }
 
 function checkDemographics() {
-	if(document.getElementById('age').value == 'Select...' || document.getElementById('country').value == 'Select...' || document.getElementById('ethnic').value == 'Select...' || document.getElementById('education').value == 'Select...' || document.getElementById('gender').value == 'Select...' || document.getElementById('occupation').value == 'Select...' || document.getElementById('religion').value == 'Select...'){
+	if(document.getElementById('prolific_id').value == '' || document.getElementById('age').value == 'Select...' || document.getElementById('country').value == 'Select...' || document.getElementById('ethnic').value == 'Select...' || document.getElementById('education').value == 'Select...' || document.getElementById('gender').value == 'Select...' || document.getElementById('occupation').value == 'Select...' || document.getElementById('religion').value == 'Select...'){
 		alert("Please provide an answer for each question");
 		empty_struggle = true;
 	}
@@ -862,7 +865,6 @@ function generateAttentionOperation() {
 }
 
 $(document).ready(function() {
-
 	$(".next").click(function(){
 		if(empty_struggle)
 			return false;
@@ -923,6 +925,10 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+	code = Math.random().toString(36).toUpperCase().slice(2);
+	document.getElementById("completion_code_temp").innerHTML = code;
+	document.getElementById("completion_code").innerHTML = code;
+
 	validated = false;
 });
 
