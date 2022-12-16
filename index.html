@@ -1,11 +1,4 @@
-<!-- You must include this JavaScript file -->
-<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
-<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
-      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
-
-<!-- You must include crowd-form so that your task submits answers to MTurk -->
-<crowd-form answer-format="flatten-objects">
 <!DOCTYPE html>
 <html>
 <!-- MultiStep Form -->
@@ -28,7 +21,11 @@
 <body>
 	<div class="row" id="main">
 		<div class="col-md-12 col-md-offset-3">
-			<form id="msform">
+			<form 
+			  id="msform"
+			  action="https://formspree.io/f/xnqyaqeg"
+			  method="POST"
+			>
 				<!-- progressbar -->
 				<ul id="progressbar">
 					<li class="active"><b>Info & consent</b></li>
@@ -464,7 +461,7 @@
 					<h3 class="fs-subtitle"><b>Thank you! Now you can go back and double-check what you wrote, or you can just submit.</b></h3>
 
 					<input type="button" name="previous" class="previous action-button-previous" onclick="saveTime('submit')" value="Previous"/>
-					<crowd-button form-action="submit" variant="primary" data-testid="crowd-submit"onclick="saveTime('submit'); storeVariables()">SUBMIT</crowd-button>
+					<button type="submit" onclick="saveTime('submit'); storeVariables()">Submit</button>
 				</fieldset>
 				<div class="col-md-12" id="timings" style="display:none">
 					<textarea name="time_consent" id="time_consent"></textarea></p>
@@ -965,4 +962,3 @@ function validateConsentForm() {
 	consent_form_validated = false;
 }
 </script>
-</crowdform>
