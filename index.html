@@ -463,7 +463,9 @@
 				<fieldset>
 					<h2 class="confirm">Confirm and submit</h2>
 					<h3 class="fs-subtitle"><b>Thank you! Now you can go back and double-check what you wrote, or you can just submit.</b></h3>
+					<h2><b>IMPORTANT:</b> before submitting, save the following completion code. Then submit the form, go back to Prolific and put the completion code before submitting there.</h1>
 					<br>
+					<h3>COMPLETION CODE: <a id="completion_code_temp">AAAAAAAAA</a></h3>
 					<input type="button" name="previous" class="previous action-button-previous" onclick="saveTime('submit')" value="Previous"/>
 					<button type="submit" onclick="saveTime('submit'); storeVariables()">Submit</button>
 				</fieldset>
@@ -476,6 +478,8 @@
 					<textarea name="operator" id="operator"></textarea></p>
 					<textarea name="result" id="result"></textarea></p>
 					<textarea name="completion_code" id="completion_code"></textarea></p>
+					<textarea name="completion_date" id="completion_date"></textarea></p>
+
 				</div>
 			</form>
 		</div>
@@ -923,6 +927,17 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+	code = 'C1FB74W3'//Math.random().toString(36).toUpperCase().slice(2);
+	document.getElementById("completion_code_temp").innerHTML = code;
+	document.getElementById("completion_code").innerHTML = code;
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	today = dd + '/' + mm + '/' + yyyy;
+	document.getElementById("completion_date").innerHTML = today;
+
 	validated = false;
 });
 
