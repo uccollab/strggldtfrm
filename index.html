@@ -38,15 +38,15 @@
 				<fieldset>
 					<div class="consent-page">
 					<h1>What we ask you to do?</h1><br>
-					<img src="https://drive.google.com/uc?export=view&id=1vso8xbTfXEr7dhj0FjJ2hhBne9erFRNs" alt="introduction_tutorial">
+					<img src="https://drive.google.com/file/d/1vso8xbTfXEr7dhj0FjJ2hhBne9erFRNs/view?usp=sharing" alt="introduction_tutorial">
 					<!-- Default checkbox -->
 					<input type="checkbox" onclick="revealConsentForm(); check();" id="interested" name="interested" value="interested">
 					<label class="checkbox-label"  for="interested">I want to take part in the experiment.</label>
 					<div class="col-md-12" id="consent_form" style="display:none">
 						<h3 id="consent_form_b"><b>Consent form</b></h3>
 						<a id="consent_form_b">Project title:</a> Collection and Validation of Human-Sourced and machine-generated comforting text in dietary domain <br>
-						<a id="consent_form_b">Principal Investigator(s):</a> Simone Balloccu <br>
-						<a id="consent_form_b">Supervisor(s):</a> Ehud Reiter <br>
+						<a id="consent_form_b">Principal Investigator(s):</a> $INVESTIGATOR <br>
+						<a id="consent_form_b">Supervisor(s):</a> $SUPERVISOR <br>
 						<hr/>
 						<p>Please read the statements below and tick the final box to confirm you have read and understood the statements and upon doing so agree to participate in the project.
 						<br><br>
@@ -465,7 +465,7 @@
 					<h3 class="fs-subtitle"><b>Thank you! Now you can go back and double-check what you wrote, or you can just submit.</b></h3>
 					<h2><b>IMPORTANT:</b> before submitting, save the following completion code. Then submit the form, go back to Prolific and put the completion code before submitting there.</h1>
 					<br>
-					<h3>COMPLETION CODE: <a id="completion_code_temp">AAAAAAAAA</a></h3>
+					<h3>COMPLETION CODE: $CODE</h3>
 				</fieldset>
 				<div class="col-md-12" id="timings" style="display:none">
 					<textarea name="time_consent" id="time_consent"></textarea></p>
